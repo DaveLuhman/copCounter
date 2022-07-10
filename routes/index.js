@@ -1,13 +1,18 @@
 const router = require('express').Router()
 
+const { model } = require('mongoose')
+const Sighting = require('../models/sightingModel')
 
-router.get('/' , (req , res)=>{
-    res.render('index' , { layout: 'main'   , title: 'Home'})
-})
+router.get('/', (req, res) => {
+    res.render('index', {layout: 'main'})
+ })
 
 
 router.get('/SawOneLightsOn' , (req , res)=>{
-    req.body.lightsOn = true
+    const sighting = new Sighting.create({})
+    sighting.save()
+    res.render('dashboard.hbs')
+    console.log(`smokey found a bandit`).cyan.underline
     })
 
 module.exports  = router

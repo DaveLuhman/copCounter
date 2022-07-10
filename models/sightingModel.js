@@ -5,9 +5,9 @@ const sightingSchema = mongoose.Schema({
             type: mongoose.Schema.Types.Date,
             default: Date.now
         },
-        user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
+        lightsOn: {
+            type: Boolean,
+            default: true,
         }
     },
     {

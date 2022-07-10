@@ -5,6 +5,7 @@ const port = process.env.PORT || 5000
 const {errorHandler} = require('./middleware/error')
 const colors = require('colors')
 const { connect } = require('mongoose')
+const exphbs = require('express-handlebars')
 const app = express()
 
 connectDB()
