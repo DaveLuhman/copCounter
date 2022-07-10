@@ -9,14 +9,12 @@ router.get('/', (req, res) => {
 
 
 router.get('/SawOneLightsOn' , (req , res)=>{
-    const sighting = Sighting.create({})
-    sighting.lightsOn = true
+    const sighting = Sighting.create({'lightsOn': true})
     res.render('index.hbs')
     console.log(`smokey found a bandit`)
     })
 router.get('/SawOneLightsOff' , (req , res)=>{
-    const sighting = Sighting.create({})
-    sighting.lightsOn = false
+    const sighting = Sighting.create({'lightsOn': false})
     res.render('index.hbs')
     console.log(`smokey found a bandit`)
     })
