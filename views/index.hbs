@@ -1,9 +1,9 @@
-<h5> Total Sightings{{sightings.length}}</h5>
+<h5> Total Sightings:  <h3>{{sightings.length}}</h3></h5>
 {{#each sightings}}
-<div class="col s12 m4">
+<div class="col s8 m4 offset-s8">
     <div class="card">
         <div class="card-content center-align">
-            {{this}}
+            {{this.time}}
         </div>
     </div>
 </div>
