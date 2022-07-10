@@ -12,13 +12,13 @@ router.get('/SawOneLightsOn' , (req , res)=>{
     const sighting = Sighting.create({})
     sighting.lightsOn = true
     res.render('dashboard.hbs')
-    console.log(`smokey found a bandit`).cyan.underline
+    console.log(`smokey found a bandit`)
     })
     router.get('/SawOneLightsOff' , (req , res)=>{
         const sighting = Sighting.create({})
         sighting.lightsOn = off
         res.render('dashboard.hbs')
-        console.log(`smokey found a bandit`).cyan.underline
+        console.log(`smokey found a bandit`)
         })
 
 module.exports  = router
