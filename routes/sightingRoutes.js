@@ -3,7 +3,7 @@ const controller = require('../controllers/sightingController')
 const { model } = require('mongoose')
 const Sighting = require('../models/sightingModel')
 
-router.get('/', (req, res) => {
+router.get('/', controller.getSightings, (req, res) => {
     res.render('index', {layout: 'main'})
  })
 
