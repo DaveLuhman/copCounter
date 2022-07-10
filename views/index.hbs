@@ -1,6 +1,6 @@
 <br><br><br><h6>Sightings for Tonight</h6>
 <p>Here are your sightings</p>
-{{#if sightings}}
+
     <table class="striped">
         <thead>
             <tr class="headers">
@@ -9,7 +9,7 @@
             </tr>
         </thead>
         <tbody class="table-contents">
-            {{#each sighting}}
+            {{#each sightings}}
             <tr>
                 <td>{{createdAt}}</td>
                 <td>{{lightsOn}}</td>
@@ -20,4 +20,3 @@
 {{else}}
     <p>You haven't recorded any sightings yet.</p>
 
-{{/if}}
