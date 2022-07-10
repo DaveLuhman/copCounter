@@ -24,6 +24,6 @@ app.engine(
 
 app.use(errorHandler)
 
-app.use('/', require('./routes/index.js'))
+app.use('/', require('./routes/sightingRoutes.js'))
 
 app.listen(port, () => console.log(`Server started on port ${port}`))
