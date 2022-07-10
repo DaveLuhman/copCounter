@@ -14,12 +14,12 @@ router.get('/SawOneLightsOn' , (req , res)=>{
     res.render('index.hbs')
     console.log(`smokey found a bandit`)
     })
-    router.get('/SawOneLightsOff' , (req , res)=>{
-        const sighting = Sighting.create({})
-        sighting.lightsOn = off
-        res.render('index.hbs')
-        console.log(`smokey found a bandit`)
-        })
+router.get('/SawOneLightsOff' , (req , res)=>{
+    const sighting = Sighting.create({})
+    sighting.lightsOn = false
+    res.render('index.hbs')
+    console.log(`smokey found a bandit`)
+    })
 
 module.exports  = router
 
