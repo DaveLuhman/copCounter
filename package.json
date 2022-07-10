@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js --watch app.js -e NODE_ENV=development",
-    "prod": "node app.js -e NODE_ENV=production"
+    "start": "node app.js -e NODE_ENV=production"
   },
   "keywords": [],
   "author": "",
