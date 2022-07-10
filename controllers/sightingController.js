@@ -4,7 +4,7 @@ const Sighting = require('../models/sightingModel')
 const controller = {}
 controller.getSightings = async (req, res) => {
     const sightings = await Sighting.find()
-    res.status(201).json(sightings).render('index', {layout: 'main'})
+    res.status(201).render('index', {layout: 'main'}).json(sightings)
     console.log(sightings)
 }
 controller.insertSighting = async (req, res) => {
