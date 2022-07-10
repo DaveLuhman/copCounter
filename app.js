@@ -12,6 +12,15 @@ connectDB()
 
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
+// Handlebars
+app.engine(
+    '.hbs',
+    exphbs.engine({
+      defaultLayout: 'main',
+      extname: '.hbs',
+    })
+  );
+  app.set('view engine', '.hbs');
 
 app.use(errorHandler)
 
