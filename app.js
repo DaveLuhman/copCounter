@@ -7,9 +7,10 @@ const colors = require('colors')
 const { connect } = require('mongoose')
 const exphbs = require('express-handlebars')
 const app = express()
+const morgan = require('morgan')
 
 connectDB()
-
+app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 // Handlebars

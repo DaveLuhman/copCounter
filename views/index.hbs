@@ -1,21 +1,11 @@
-<br><br><br><h6>Sightings for Tonight</h6>
-<p>Here are your sightings</p>
+<h5> Total Sightings{{sightings.length}}</h5>
+{{#each sightings}}
+<div class="col s12 m4">
+    <div class="card">
+        <div class="card-content center-align">
+            {{this}}
+        </div>
+    </div>
+</div>
 
-    <table class="striped">
-        <thead>
-            <tr class="headers">
-                <th>Timestamp</th>
-                <th>Lights on?</th>
-            </tr>
-        </thead>
-        <tbody class="table-contents">
-            {{#each sightings}}
-            <tr>
-                <td>{{createdAt}}</td>
-                <td>{{lightsOn}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-    <br><br><br>
-
+{{/each}}
