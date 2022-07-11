@@ -5,7 +5,7 @@
         {{#if sightings}}
         <table class="striped">
             <thead>
-                <tr>
+                <tr class="card-title">
                     <th> Lights On: {{lightsOn.length}}</th>
                 </tr>
             </thead>
@@ -24,7 +24,7 @@
 
             <table class="striped">
                 <thead>
-                    <tr>
+                    <tr class="card-title">
                         <th>Lights Off: {{lightsOff.length}}</th>
                     </tr>
                 </thead>
@@ -38,19 +38,21 @@
             </table>
         </div>
     </div>
-    </div>
-    <div class="row">
-        <div class="card center">
-            <div class="card-title center">
-                <p>Reset CopCounter DB</p>
-            </div>
-            <div class="card-content center">
-                <a href="/reset" class="btn-floating btn-large waves-effect waves-light red ">
-                    <i class="fa-trash"></i></a>
-            </div>
+</div>
+<div class="row">
+    <div class="card center">
+        <div class="card-title center">
+            <p>Reset CopCounter DB</p>
+        </div>
+        <div class="card-content center">
+            <a href="/reset" class="btn-floating btn-large waves-effect waves-light red ">
+                <i class="fa-trash"></i></a>
         </div>
     </div>
-    {{else}}
+</div>
+
+{{else}}
+<div class="">
     <h5>No Sightings</h5>
     {{/if}}
 </div>
