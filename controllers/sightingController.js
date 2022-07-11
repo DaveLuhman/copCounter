@@ -6,7 +6,7 @@ controller.getSightings = async (req, res) => {
     try {
         const sightings = await Sighting.find().lean()
         const lightsOn = await sightings.filter(sighting => sighting.lightsOn)
-        console.log(req.toJSON())
+        console.log(req.body)
         const lightsOff = await sightings.filter(sighting => !sighting.lightsOn)
         res.status(200).render('index', {layout: 'main', sightings, lightsOn, lightsOff})
     } catch(err) {
