@@ -16,11 +16,11 @@ controller.insertSighting = async (req, res) => {
 }
 controller.lightsOn = async (req, res) => {
     const sighting = await Sighting.create({ "lightsOn": true })
-    res.status(201).render('index', {layout: 'main'})
+    res.status(201).redirect('/')
 }
 controller.lightsOff = async (req, res) => {
     const sighting = await Sighting.create({ "lightsOn": false })
-    res.status(201).render('index', {layout: 'main'})
+    res.status(201).redirect('/')
 }
 
 module.exports = controller;
