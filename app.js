@@ -5,6 +5,7 @@ const port = process.env.PORT || 5000
 const {errorHandler} = require('./middleware/error')
 const colors = require('colors')
 const { connect } = require('mongoose')
+const exphbs = require('express-handlebars')
 const hbs = require('hbs')
 const app = express()
 const morgan = require('morgan')
@@ -16,7 +17,7 @@ app.use(express.urlencoded({extended:false}))
 // Handlebars
 app.engine(
     '.hbs',
-    hbs.engine({
+    exphbs.engine({
       defaultLayout: 'main',
       extname: '.hbs',
     })
