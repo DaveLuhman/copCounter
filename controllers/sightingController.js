@@ -4,8 +4,12 @@ const Sighting = require('../models/sightingModel')
 const controller = {}
 controller.getSightings = async (req, res) => {
     try {
-        const sightings = await Sighting.find()
-        res.status(200).render('index', {layout: 'main', sightings})
+        const sightings = await Sighting.find().lean()
+        const lightsOn = await sightings.filter(sighting => sighting.lightsOn)
+        console.log(lightsOn)
+        const lightsOff = await sightings.filter(sighting => !sighting.lightsOn)
+        console.log(lightsOff)
+        res.status(200).render('index', {layout: 'main', sightings, lightsOn, lightsOff})
     } catch(err) {
         res.status(500).render('index', {layout: 'main', err})
     }}

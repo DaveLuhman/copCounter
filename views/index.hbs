@@ -1,11 +1,42 @@
-<h5> Total Sightings:  <h3>{{sightings.length}}</h3></h5>
-{{#each sightings}}
-<div class="col s8 m4 offset-s8">
-    <div class="card">
-        <div class="card-content center-align">
-            {{sighting.time}}
-        </div>
+<h5> Total Sightings: <h3>{{sightings.length}}</h3>
+</h5>
+<div class="row">
+    <div class="col s6">
+        {{#if lightsOn}}
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th> Lights On: {{lightsOn.length}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each lightsOn}}
+                <tr>
+                    <td>{{createdAt}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{/if}}
     </div>
-</div>
-
-{{/each}}
+    <div class="row">
+        <div class="col s6 m4">
+            {{#if lightsOff}}
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Lights Off: {{lightsOff.length}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each lightsOff}}
+                    <tr>
+                        <td>{{createdAt}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+            <h5>No Sightings</h5>
+            {{/if}}
+        </div>
