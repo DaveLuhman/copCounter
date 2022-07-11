@@ -5,7 +5,7 @@ const port = process.env.PORT || 5000
 const {errorHandler} = require('./middleware/error')
 const colors = require('colors')
 const { connect } = require('mongoose')
-const exphbs = require('express-handlebars')
+const hbs = require('hbs')
 const app = express()
 const morgan = require('morgan')
 
@@ -16,13 +16,13 @@ app.use(express.urlencoded({extended:false}))
 // Handlebars
 app.engine(
     '.hbs',
-    exphbs.engine({
+    hbs.engine({
       defaultLayout: 'main',
       extname: '.hbs',
     })
   );
   app.set('view engine', '.hbs');
-
+hbs.registerHelper('dateFormat', require('handlebars-dateformat'))
 app.use(errorHandler)
 
 app.use('/', require('./routes/sightingRoutes.js'))
