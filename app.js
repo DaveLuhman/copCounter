@@ -6,10 +6,9 @@ const {errorHandler} = require('./middleware/error')
 const colors = require('colors')
 const { connect } = require('mongoose')
 const exphbs = require('express-handlebars')
-const hbs = require('hbs')
 const app = express()
 const morgan = require('morgan')
-
+const formatDate = require('./helpers/hbs.js')
 connectDB()
 app.use(morgan('dev'))
 app.use(express.json())
@@ -18,12 +17,15 @@ app.use(express.urlencoded({extended:false}))
 app.engine(
     '.hbs',
     exphbs.engine({
+      helpers: {
+        formatDate
+      },
       defaultLayout: 'main',
       extname: '.hbs',
     })
   );
   app.set('view engine', '.hbs');
-hbs.registerHelper('dateFormat', require('handlebars-dateformat'))
+
 app.use(errorHandler)
 
 app.use('/', require('./routes/sightingRoutes.js'))

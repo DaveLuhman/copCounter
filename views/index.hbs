@@ -12,7 +12,7 @@
             <tbody>
                 {{#each lightsOn}}
                 <tr>
-                    <td>{{dateFormat createdAt "MMM Do, HH:mm"}}</td>
+                    <td>{{createdAt}}</td>
                 </tr>
                 {{/each}}
             </tbody>
@@ -31,7 +31,7 @@
                 <tbody>
                     {{#each lightsOff}}
                     <tr>
-                        <td>{{dateFormat createdAt "MMM Do, HH:mm"}}</td>
+                        <td>{{createdAt}}</td>
                     </tr>
                     {{/each}}
                 </tbody>
