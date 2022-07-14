@@ -6,7 +6,6 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
-    mongoose.set('useFindAndModify', false)
     mongoose.set('debug', true)
 
     console.log(`MongoDB Connected Successfully: ${conn.connection.host}`)
