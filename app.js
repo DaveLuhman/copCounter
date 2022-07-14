@@ -41,7 +41,7 @@ app.use(session({
     stringify: false,
   })
 }));
-require('/config/passport.js')(passport) // Passport config
+require('./config/passport.js')(passport) // Passport config
 //passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
