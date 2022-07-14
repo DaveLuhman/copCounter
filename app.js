@@ -11,8 +11,8 @@ const morgan = require('morgan')
 const formatDate = require('./helpers/hbs.js')
 const passport = require('passport')
 const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
-require('./config/passport')(passport) // Passport config
+const MongoStore = require('connect-mongo')
+
 
 connectDB()
 app.use(morgan('dev'))
@@ -41,7 +41,7 @@ app.use(session({
     stringify: false,
   })
 }));
-
+require('/config/passport.js')(passport) // Passport config
 //passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
