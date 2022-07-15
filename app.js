@@ -12,11 +12,14 @@ const formatDate = require('./helpers/hbs.js')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
+const {log} = require('mercedlogger')
+const cors = require('cors')
 
 
 connectDB()
-app.use(morgan('dev'))
+app.use(morgan('tiny'))
 app.use(express.json())
+app.use(cors())
 app.use(express.urlencoded({extended:false}))
 // Handlebars
 app.engine(

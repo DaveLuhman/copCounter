@@ -15,11 +15,11 @@ controller.getSightings = async (req, res) => {
 
 controller.lightsOn = async (req, res) => {
 
-    const sighting = await Sighting.create({ "lightsOn": true })
+    const sighting = await Sighting.create({ "lightsOn": true, "latitude": req.body.latitude, "longitude": req.body.longitude, "user": req.body.user })
     res.status(201).redirect('/')
 }
 controller.lightsOff = async (req, res) => {
-    const sighting = await Sighting.create({ "lightsOn": false })
+    const sighting = await Sighting.create({ "lightsOn": false, "latitude": req.body.latitude, "longitude": req.body.longitude, "user": req.body.user })
     res.status(201).redirect('/')
 }
 

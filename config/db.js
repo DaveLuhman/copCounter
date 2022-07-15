@@ -8,7 +8,12 @@ const connectDB = async () => {
     })
     mongoose.set('debug', true)
 
+    mongoose.connection
+    .on("open", () => log.green("DATABASE STATE", "Connection Open"))
+    .on("close", () => log.magenta("DATABASE STATE", "Connection Open"))
+    .on("error", (error) => log.red("DATABASE STATE", error))
     console.log(`MongoDB Connected Successfully: ${conn.connection.host}`)
+    
   } catch (err) {
     console.error(err)
     process.exit(1)
