@@ -9,12 +9,11 @@ const sightingSchema = mongoose.Schema({
             type: Boolean,
             default: true,
         },
-        user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'user',
-            required: true,
-        },
-    },
+        latitude: {
+            type: Number,
+
+    }
+},
     {
         timestamps: true,
     }
