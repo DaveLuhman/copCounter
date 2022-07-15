@@ -7,8 +7,8 @@ const Sighting = require('../models/sightingModel')
 router.get('/', controller.getSightings)
 
 
-router.get('/SawOneLightsOn' , controller.lightsOn)
-router.get('/SawOneLightsOff' , controller.lightsOff)
+router.post('/SawOneLightsOn' , controller.lightsOn)
+router.post('/SawOneLightsOff' , controller.lightsOff)
 router.get('/reset', utilityController.reset)
 module.exports  = router
 

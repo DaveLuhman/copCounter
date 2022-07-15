@@ -51,7 +51,7 @@ app.use(passport.session())
 
 app.use(errorHandler)
 
-app.use('/', require('./routes/sightingRoutes.js'))
+app.use('/', require('./routes/sighting.js'))
 app.use('/auth', require('./routes/auth'));
 
 app.listen(port, () => console.log(`Server started on port ${port}`))

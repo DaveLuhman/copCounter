@@ -1,23 +1,18 @@
-const mongoose = require('mongoose')
+require("dotenv").config() // load .env variables
+const mongoose = require("mongoose") //import fresh mongoose object
+const {log} = require("mercedlogger") // import merced logger
 
-const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
-    mongoose.set('debug', true)
+//DESTRUCTURE ENV VARIABLES
+const {DATABASE_URL} = process.env
 
-    mongoose.connection
-    .on("open", () => log.green("DATABASE STATE", "Connection Open"))
-    .on("close", () => log.magenta("DATABASE STATE", "Connection Open"))
-    .on("error", (error) => log.red("DATABASE STATE", error))
-    console.log(`MongoDB Connected Successfully: ${conn.connection.host}`)
-    
-  } catch (err) {
-    console.error(err)
-    process.exit(1)
-  }
-}
+// CONNECT TO MONGO
+mongoose.connect = mongoose.connect(DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true})
 
-module.exports = connectDB
+// CONNECTION EVENTS
+mongoose.connection
+.on("open", () => log.green("DATABASE STATE", "Connection Open"))
+.on("close", () => log.magenta("DATABASE STATE", "Connection Open"))
+.on("error", (error) => log.red("DATABASE STATE", error))
+
+// EXPORT CONNECTION
+module.exports = mongoose
