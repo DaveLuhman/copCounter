@@ -13,7 +13,8 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const {log} = require('mercedlogger')
 const cors = require('cors')
-
+const bcrypt = require('bcrypt')
+const passport = require('passport')
 
 connectDB()
 app.use(morgan('tiny'))
@@ -44,10 +45,14 @@ app.use(session({
   })
 }));
 
+//passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(errorHandler)
 
 app.use('/', require('./routes/sightingRoutes.js'))
+app.use('/auth', require('./routes/auth.js'))
 
 
 app.listen(port, () => console.log(`Server started on port ${port}`))

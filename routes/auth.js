@@ -1,6 +1,8 @@
-const express = require('express');
-const router = express.Router();
 const passport = require('passport')
+const router = require('express').Router()
+const controller = require('../controllers/auth')
+const { model } = require('mongoose')
+const user = require('../models/user')
 
 // @desc    Auth with Google
 // @route   GET /auth/google
@@ -18,4 +20,12 @@ router.get('/logout', (req, res) => {
     res.logout()
     res.redirect('/login')
 })
+
+//@desc get request for LoginPage
+//@route /auth/
+router.get('/', controller.getLoginPage)
+
+router.get('/register', controller.getRegisterPage)
+router.post('/submitRegistration', controller.submitRegistration)
+
 module.exports = router;

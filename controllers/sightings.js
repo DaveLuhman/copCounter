@@ -1,6 +1,4 @@
-const asyncHandler = ('express-async-handler')
-const mongoose = require('mongoose')
-const Sighting = require('../models/sightingModel')
+const Sighting = require('../models/sighting')
 const controller = {}
 controller.getSightings = async (req, res) => {
     try {
@@ -16,11 +14,15 @@ controller.getSightings = async (req, res) => {
 controller.lightsOn = async (req, res) => {
 
     const sighting = await Sighting.create({ "lightsOn": true, "latitude": req.body.latitude, "longitude": req.body.longitude, "user": req.body.user })
-    res.status(201).redirect('/')
+    res.status(201).redirect('/') //created
 }
 controller.lightsOff = async (req, res) => {
     const sighting = await Sighting.create({ "lightsOn": false, "latitude": req.body.latitude, "longitude": req.body.longitude, "user": req.body.user })
-    res.status(201).redirect('/')
+    res.status(201).redirect('/') //created
 }
 
+controller.reset = async (req, res) => {
+    Sighting.deleteMany({}, err => {console.log(err)})
+    res.redirect('/')
+}
 module.exports = controller;

@@ -1,18 +1,19 @@
+
 <div class="card">
     <div class="card-title">
-        <h3> Login Page</h3>
+        <h3> Register Yer Account and Yall can start countin</h3>
     </div>
-    <form action="/auth/submitLogin" method="POST">
+    <form action="/auth/submitRegistration" method="POST">
 
-        <div class=" card-content">
+        <div class="col s12 m6 card-content">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
         </div>
-        <div class=" card-content">
+        <div class="col s12 m6 card-content">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <button class="btn-large waves-effect waves-light blue lighten center" type="submit">Start Countin` Cops</button>
+        <button class="btn-large waves-effect waves-light blue lighten" type="submit">Register</button>
 </div>
 </form>
-<a href="/auth/register">Register Here</a>
+<a href="/auth">Login</a>
